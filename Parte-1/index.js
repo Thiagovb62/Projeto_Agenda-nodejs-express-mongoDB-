@@ -12,7 +12,7 @@ mongoose
     app.emit("appStarted");
   })
   .catch((e) => console.log(e));
-const port = 3000;
+const port = 4000;
 
 const helmet = require("helmet"); // deixa a aplicaçao mais segura 
 const crsf = require("csurf"); // protege contra ataques de sites externos
@@ -26,7 +26,7 @@ const { middlewareGlobal, checkCsrfError, checkCsrfGlobal} = require("./src/midd
 
 app.use(helmet());
 app.use(express.urlencoded({ extended: true })); // postar formulario para dentro da app
-app.use(express.json()); // receber json
+ // receber json
 app.use(express.static(path.resolve(__dirname, "public"))); // arquivos que podem ser acessados publicamente
 
 const sessionOptions = session ({
@@ -60,3 +60,4 @@ app.on("appStarted", () => {
     console.log(`Example app listening at http://localhost:${port}`);
   });
 });
+

@@ -1,23 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<%- include('includes/head') %> <%- include('includes/nav') %>
 
-<%- include('./includes/head.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
 
-<body>
+    <div class="col-lg-8 my-3">
+      <h1 class="display-1 text-center">Agenda</h1>
+      <p class="text-center lead">Seus contatos estão abaixo</p>
 
-  <section class="container">
-    <h1>  
+      <div class="row">
+        <div class="col my-3">
+          <div class="alert alert-danger">Error</div>
+        </div>
+      </div>
 
-     <%= csrfToken %>
-    </h1>
-
-
-    <form action="/" method="post">
-      <input type="hidden" name="_csrf" value='<%= csrfToken %>'>
-      <label>Cliente</label>
-      <input type="text" name="cliente" placeholder="Cliente">
-      <button>Submit</button>
-    </form>
-  </section>
-
-  <%- include('./includes/footer.ejs') %>
+      <div class="responsive-table">
+          <table class="table my-3">
+            <tr>
+              <td>Thiago</td>
+              <td>Viana</td>
+              <td>55859283912</td>
+              <td>Thiagoviana@email.com</td>
+            </tr>
+            <tr>
+              <td>Thiago</td>
+              <td>Viana</td>
+              <td>55859283912</td>
+              <td>Thiagoviana@email.com</td>
+            </tr>
+            <tr>
+              <td>Thiago</td>
+              <td>Viana</td>
+              <td>55859283912</td>
+              <td>Thiagoviana@email.com</td>
+            </tr>
+            <tr>
+              <td>Thiago</td>
+              <td>Viana</td>
+              <td>55859283912</td>
+              <td>Thiagoviana@email.com</td>
+            </tr>
+          </table>
+      </div>
+    </div class="col-lg-2"></div>
+    </div>
+  </div>
+</div>
+<%- include('includes/footer') %>
