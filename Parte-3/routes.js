@@ -7,7 +7,8 @@ const loginController = require("./src/controller/loginController");
 routes.get("/", homeController.paginaInicia); 
 
 // Rota da Logim
-routes.get("/login", loginController.index);
+routes.get("/login/index", loginController.index);
+routes.post("/login/register", loginController.register);
 
 // Exportação das rotas
 
