@@ -11,23 +11,28 @@ class Login {
 
     constructor(body){
         this.body = body;
-        this.err = [];
+        this.errors = [];
         this.user = null;
     }
     
 
-    register() {
+    async register() {
         this.valida();
-        if (this.err.length > 0) return;
+        if (this.errors.length > 0) return;
+        try{
+            this.user = await loginModel.create(this.body);
+        }
+       catch(e){
+        console.log(e);
+       }
     }
-
     valida() {
         this.cleanUp();
         
         //validate email
-        !validator.isEmail(this.body.email) ? this.err.push("Email inválido") : this.body.email = this.body.email;
+        !validator.isEmail(this.body.email) ? this.errors.push("Email inválido") : this.body.email = this.body.email;
         //validate password
-        !validator.isLength(this.body.password, {min: 6,max:20}) ? this.err.push("Senha deve ter no minimo 6 caracteres e no maximo 20!") : this.body.password = this.body.password;
+        !validator.isLength(this.body.password, {min: 6,max:20}) ? this.errors.push("Senha deve ter no minimo 6 caracteres e no maximo 20!") : this.body.password = this.body.password;
     }
 
     cleanUp(){
