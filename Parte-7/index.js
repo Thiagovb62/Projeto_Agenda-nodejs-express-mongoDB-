@@ -6,7 +6,11 @@ const app = express();
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.CONNECTIONSTRING)
+  .connect(process.env.CONNECTIONSTRING,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("conectei no banco de dados");
     app.emit("appStarted");
